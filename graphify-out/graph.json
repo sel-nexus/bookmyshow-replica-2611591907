@@ -7583,6 +7583,45 @@
       "_origin": "ast"
     },
     {
+      "source": "backend_src_modules_booking_booking_repository_confirmation",
+      "target": "backend_src_modules_booking_booking_service_bookingservice_create",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/booking/booking.service.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_src_modules_booking_booking_service_bookingservice_create",
+      "_tgt": "backend_src_modules_booking_booking_repository_confirmation"
+    },
+    {
+      "source": "backend_src_modules_booking_booking_repository_confirmation",
+      "target": "backend_src_modules_booking_booking_service_bookingservice_getconfirmation",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/booking/booking.service.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_src_modules_booking_booking_service_bookingservice_getconfirmation",
+      "_tgt": "backend_src_modules_booking_booking_repository_confirmation"
+    },
+    {
+      "source": "backend_src_modules_booking_booking_repository_bookingrepository",
+      "target": "backend_src_modules_booking_booking_service_bookingservice_constructor",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/booking/booking.service.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "_src": "backend_src_modules_booking_booking_service_bookingservice_constructor",
+      "_tgt": "backend_src_modules_booking_booking_repository_bookingrepository"
+    },
+    {
       "source": "backend_src_modules_catalog_catalog_repository_catalogmovie",
       "target": "backend_src_modules_catalog_catalog_service_catalogservice_listmovies",
       "relation": "references",
@@ -7636,7 +7675,7 @@
     }
   ],
   "metadata": {
-    "built_at": "2026-09-17T15:11:15.193205+00:00",
+    "built_at": "2026-09-17T15:14:06.440774+00:00",
     "version": "graph_update-v1",
     "codebase_root": "C:\\artifacts-v2\\T0132PcJVCRTV000417092611591907\\developer",
     "force": true,
