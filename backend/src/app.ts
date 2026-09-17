@@ -19,7 +19,9 @@ export function createApp(db: Database.Database, config: Config = loadConfig()) 
   const app = express();
   app.use(correlationId);
   app.use(requestLogger);
-  app.use(cors({ origin: config.corsOrigin }));
+  if (config.corsOrigin) {
+    app.use(cors({ origin: config.corsOrigin }));
+  }
   app.use(express.json({ limit: '10kb' }));
   app.get('/api/health', (_req, res) => {
     try {

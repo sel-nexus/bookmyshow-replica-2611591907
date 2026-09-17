@@ -10,14 +10,17 @@ describe('runtime configuration', () => {
     });
   });
 
-  it('fails closed in production when required deployment settings are missing', () => {
-    expect(() => loadConfig({ NODE_ENV: 'production', SQLITE_PATH: undefined, JWT_SECRET: '', CORS_ORIGIN: undefined })).toThrow('Missing required production configuration: SQLITE_PATH, JWT_SECRET, CORS_ORIGIN');
+  it('fails closed in production when required persistence or signing settings are missing', () => {
+    expect(() => loadConfig({ NODE_ENV: 'production', SQLITE_PATH: undefined, JWT_SECRET: '', CORS_ORIGIN: undefined })).toThrow('Missing required production configuration: SQLITE_PATH, JWT_SECRET');
   });
 
-  it('accepts explicit production deployment settings', () => {
-    expect(loadConfig({ NODE_ENV: 'production', SQLITE_PATH: '/var/lib/bookings.db', JWT_SECRET: 'production-secret', CORS_ORIGIN: 'https://bookings.example' })).toMatchObject({
-      sqlitePath: '/var/lib/bookings.db',
+  it('uses same-origin production routing without enabling CORS unless an origin is supplied', () => {
+    expect(loadConfig({ NODE_ENV: 'production', SQLITE_PATH: '/tmp/bookings.db', JWT_SECRET: 'production-secret', CORS_ORIGIN: undefined })).toMatchObject({
+      sqlitePath: '/tmp/bookings.db',
       jwtSecret: 'production-secret',
+      corsOrigin: undefined,
+    });
+    expect(loadConfig({ NODE_ENV: 'production', SQLITE_PATH: '/var/lib/bookings.db', JWT_SECRET: 'production-secret', CORS_ORIGIN: 'https://bookings.example' })).toMatchObject({
       corsOrigin: 'https://bookings.example',
     });
   });

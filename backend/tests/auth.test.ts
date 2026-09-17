@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createTestApp, disposeTestApp } from './test-app';
+import { createApp } from '../src/app';
 
 const apps: ReturnType<typeof createTestApp>[] = [];
 
@@ -46,6 +47,23 @@ describe('authentication API', () => {
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual({ status: 'ok' });
+  });
+
+  it('does not enable cross-origin headers for same-origin production routing', async () => {
+    const { db } = makeApp();
+    const app = createApp(db, {
+      port: 0,
+      sqlitePath: ':memory:',
+      jwtSecret: 'production-secret',
+      jwtExpiresIn: '30m',
+      corsOrigin: undefined,
+      catalogTestMode: false,
+    });
+
+    const response = await request(app).get('/api/health').set('Origin', 'https://untrusted.example');
+
+    expect(response.status).toBe(200);
+    expect(response.headers['access-control-allow-origin']).toBeUndefined();
   });
 
   it('bounds health database failures to an unavailable response', async () => {
