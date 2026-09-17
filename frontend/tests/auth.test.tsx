@@ -1,0 +1,6 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { describe, expect, it, vi } from 'vitest';
+import LoginPage from '../src/pages/LoginPage';
+import * as api from '../src/api/client';
+describe('login page',()=>{it('calls login only after submit and moves to OTP state',async()=>{const spy=vi.spyOn(api,'login').mockResolvedValue({initiated:true,mobileNumber:'9876543210'});render(<MemoryRouter><LoginPage/></MemoryRouter>);fireEvent.change(screen.getByLabelText('Mobile number'),{target:{value:'9876543210'}});expect(spy).not.toHaveBeenCalled();fireEvent.submit(screen.getByRole('button',{name:'Send OTP'}).closest('form')!);expect(await spy).toHaveBeenCalledWith('9876543210');});it('shows bounded validation failure',async()=>{vi.spyOn(api,'login').mockRejectedValue(new Error('bad'));render(<MemoryRouter><LoginPage/></MemoryRouter>);fireEvent.submit(screen.getByRole('button',{name:'Send OTP'}).closest('form')!);expect(await screen.findByRole('alert')).toHaveTextContent('valid mobile number');});});

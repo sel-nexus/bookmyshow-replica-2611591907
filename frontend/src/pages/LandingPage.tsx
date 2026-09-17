@@ -1,0 +1,3 @@
+import { Link } from 'react-router-dom';
+/** Render the public entry point for the cinema flow. */
+export default function LandingPage(){return <main className="hero"><p className="eyebrow">REELSEAT / HYDERABAD</p><h1>Tonight deserves a better seat.</h1><p>Choose a film, follow a clear checkout, and receive a confirmed cinema booking.</p><Link className="button" to="/login">Start booking</Link></main>}
