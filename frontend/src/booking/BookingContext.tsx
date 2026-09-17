@@ -19,6 +19,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
   const [theatre, setTheatre] = useState<Theatre | null>(null);
   const [seats, setSeats] = useState<string[]>([]);
   const [totalPrice, setTotalPrice] = useState<number | null>(null);
+
   const value = useMemo<BookingValue>(() => ({
     movie,
     theatre,
@@ -37,14 +38,20 @@ export function BookingProvider({ children }: { children: ReactNode }) {
     },
   }), [movie, theatre, seats, totalPrice]);
 
-  return <BookingContext.Provider value={value}>{children}</BookingContext.Provider>;
+  return (
+    <BookingContext.Provider value={value}>
+      {children}
+    </BookingContext.Provider>
+  );
 }
 
 /** Read the required booking selection context. */
 export function useBooking(): BookingValue {
   const value = useContext(BookingContext);
+
   if (!value) {
     throw new Error('BookingProvider is required');
   }
+
   return value;
 }

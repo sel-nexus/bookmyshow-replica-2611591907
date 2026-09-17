@@ -17,12 +17,9 @@ export class CatalogRepository {
   /** Create a repository over the application's SQLite database. */
   constructor(private readonly db: Database.Database) {}
 
-  /** Ensure the prescribed catalogue labels remain stable across repeated initialization. */
+  /** Preserve catalogue data as seeded; catalog reads must never mutate it. */
   normalizeSeedNames(): void {
-    const renameTheatre = this.db.prepare('UPDATE theatres SET name = ? WHERE id = ?');
-    renameTheatre.run('Sandhya', 1);
-    renameTheatre.run('Sudharsham', 2);
-    renameTheatre.run('Allu', 3);
+    // Retained as a compatibility no-op while callers are migrated away from it.
   }
 
   /** Return all movies in stable identifier order. */

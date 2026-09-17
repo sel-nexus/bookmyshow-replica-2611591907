@@ -1,5 +1,44 @@
 import { useState, type FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { login } from '../api/client';
+
 /** Submit a mobile number to enter the OTP step. */
-export default function LoginPage(){const [mobileNumber,setMobileNumber]=useState('');const [error,setError]=useState('');const navigate=useNavigate();async function submit(event:FormEvent){event.preventDefault();try{setError('');const result=await login(mobileNumber);navigate('/otp',{state:{mobileNumber:result.mobileNumber}});}catch{setError('Please enter a valid mobile number.');}}return <main className="panel"><p className="eyebrow">STEP 1 / 2</p><h1>Enter your mobile number</h1><form onSubmit={submit}><label htmlFor="mobile">Mobile number</label><input id="mobile" value={mobileNumber} onChange={event=>setMobileNumber(event.target.value)} inputMode="numeric" required /><button className="button" type="submit">Send OTP</button>{error&&<p role="alert">{error}</p>}</form></main>}
+export default function LoginPage() {
+  const [mobileNumber, setMobileNumber] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  async function submit(event: FormEvent): Promise<void> {
+    event.preventDefault();
+
+    try {
+      setError('');
+      const result = await login(mobileNumber);
+      navigate(`/otp${searchParams.toString() ? `?${searchParams.toString()}` : ''}`, { state: { mobileNumber: result.mobileNumber } });
+    } catch {
+      setError('Please enter a valid mobile number.');
+    }
+  }
+
+  return (
+    <main className="panel">
+      <p className="eyebrow">STEP 1 / 2</p>
+      <h1>Enter your mobile number</h1>
+      <form onSubmit={submit}>
+        <label htmlFor="mobile">Mobile number</label>
+        <input
+          id="mobile"
+          value={mobileNumber}
+          onChange={(event) => setMobileNumber(event.target.value)}
+          inputMode="numeric"
+          required
+        />
+        <button className="button" type="submit">
+          Send OTP
+        </button>
+        {error && <p role="alert">{error}</p>}
+      </form>
+    </main>
+  );
+}

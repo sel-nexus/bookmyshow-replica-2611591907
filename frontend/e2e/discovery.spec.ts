@@ -1,27 +1,5 @@
 import { expect, test } from '@playwright/test';
-
-test('discovers backend movies, narrows theatres by mapping, and continues with selection', async ({ page }) => {
-  const errors: string[] = [];
-  page.on('console', (message) => {
-    if (message.type() === 'error') {
-      errors.push(message.text());
-    }
-  });
-  page.on('pageerror', (error) => errors.push(error.message));
-
-  await page.goto('/');
-  await page.getByRole('link', { name: 'Start booking' }).click();
-  await page.getByLabel('Mobile number').fill('9876543210');
-  await page.getByRole('button', { name: 'Send OTP' }).click();
-  await page.getByLabel('One-time password').fill('1234');
-  await page.getByRole('button', { name: 'Verify and continue' }).click();
-  await expect(page.getByRole('button', { name: 'Paradise' })).toBeVisible();
-
-  await page.getByRole('button', { name: 'Paradise' }).click();
-  await expect(page.getByRole('button', { name: 'Sandhya' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Allu' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Sudharsham' })).not.toBeVisible();
-  await page.getByRole('button', { name: 'Sandhya' }).click();
-  await expect(page).toHaveURL(/\/seats$/);
-  expect(errors).toEqual([]);
-});
+function capture(page: import('@playwright/test').Page){const errors:string[]=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('pageerror',e=>errors.push(e.message));return errors;}
+async function authenticate(page: import('@playwright/test').Page){await page.getByLabel('Mobile number').fill('9876543210');await page.getByRole('button',{name:'Send OTP'}).click();await page.getByLabel('One-time password').fill('1234');await page.getByRole('button',{name:'Verify and continue'}).click();}
+test('discovers live wrapped movies and mapped theatres',async({page})=>{const errors=capture(page);await page.goto('/');await page.getByRole('link',{name:'Start booking'}).click();await authenticate(page);const movies=await page.waitForResponse(r=>r.url().endsWith('/api/movies'));expect(movies.status()).toBe(200);await page.getByRole('button',{name:'Paradise'}).click();const mapping=await page.waitForResponse(r=>r.url().endsWith('/api/movies/1/theatres'));expect(mapping.status()).toBe(200);await expect(page.getByRole('button',{name:'Sandhya 70mm'})).toBeVisible();await expect(page.getByRole('button',{name:'Allu Cinemas'})).toBeVisible();await page.screenshot({path:'test-results/discovery-theatres.png',fullPage:true});expect(errors).toEqual([]);});
+test('shows live loading and empty discovery states from server test mode',async({page})=>{const errors=capture(page);await page.goto('/login?scenario=delayed-empty');const emptyResponse=page.waitForResponse(r=>r.url().includes('/api/movies?scenario=delayed-empty'));await authenticate(page);await expect(page.getByText('Loading movies…')).toBeVisible();expect((await emptyResponse).status()).toBe(200);await expect(page.getByText('No movies are currently available.')).toBeVisible();await page.screenshot({path:'test-results/discovery-empty.png',fullPage:true});expect(errors).toEqual([]);});

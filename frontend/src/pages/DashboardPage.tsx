@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getMovies } from '../api/client';
 import { useBooking } from '../booking/BookingContext';
 import type { Movie } from '../types';
@@ -7,6 +7,8 @@ import type { Movie } from '../types';
 /** Display API-owned films and begin theatre selection on an explicit action. */
 export default function DashboardPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const scenario = searchParams.get('scenario') ?? undefined;
   const { selectMovie } = useBooking();
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,8 @@ export default function DashboardPage() {
 
   useEffect(() => {
     let active = true;
-    void getMovies()
+
+    void getMovies(scenario)
       .then((catalogue) => {
         if (active) {
           setMovies(catalogue);
@@ -30,10 +33,11 @@ export default function DashboardPage() {
           setLoading(false);
         }
       });
+
     return () => {
       active = false;
     };
-  }, []);
+  }, [scenario]);
 
   function handleMovieSelection(movie: Movie): void {
     selectMovie(movie);
@@ -47,10 +51,18 @@ export default function DashboardPage() {
       <p>Select a movie to see theatres offered by the live catalogue.</p>
       {loading && <p role="status">Loading movies…</p>}
       {error && <p role="alert">{error}</p>}
-      {!loading && !error && (
+      {!loading && !error && movies.length === 0 && (
+        <p role="status">No movies are currently available.</p>
+      )}
+      {!loading && !error && movies.length > 0 && (
         <div className="catalogue-list" aria-label="Movies">
           {movies.map((movie) => (
-            <button className="button" key={movie.id} type="button" onClick={() => handleMovieSelection(movie)}>
+            <button
+              className="button"
+              key={movie.id}
+              type="button"
+              onClick={() => handleMovieSelection(movie)}
+            >
               {movie.title}
             </button>
           ))}

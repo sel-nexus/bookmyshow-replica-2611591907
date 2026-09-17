@@ -6,7 +6,8 @@ export function openDatabase(filename: string): Database.Database {
   if (filename !== ':memory:') fs.mkdirSync(path.dirname(filename), { recursive: true });
   const db = new Database(filename);
   db.pragma('foreign_keys = ON');
-  db.exec(fs.readFileSync(path.join(__dirname, 'migrations', '001_initial.sql'), 'utf8'));
+  const migrationPath = path.resolve(__dirname, '..', '..', 'src', 'db', 'migrations', '001_initial.sql');
+  db.exec(fs.readFileSync(migrationPath, 'utf8'));
   const insertMovie = db.prepare('INSERT OR IGNORE INTO movies (id,title) VALUES (?,?)');
   const insertTheatre = db.prepare('INSERT OR IGNORE INTO theatres (id,name) VALUES (?,?)');
   [[1,'Paradise'],[2,'Bloody Romeo'],[3,'OG2']].forEach(([id,title]) => insertMovie.run(id,title));

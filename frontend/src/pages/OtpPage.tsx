@@ -1,6 +1,56 @@
 import { useState, type FormEvent } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { verify } from '../api/client';
 import { useAuth } from '../auth/AuthContext';
+
 /** Verify the deterministic demo OTP and create client session state. */
-export default function OtpPage(){const mobileNumber=(useLocation().state as {mobileNumber?:string}|null)?.mobileNumber;const [otp,setOtp]=useState('');const [error,setError]=useState('');const navigate=useNavigate();const {setSession}=useAuth();if(!mobileNumber)return <Navigate to="/login" replace />;const verifiedMobileNumber=mobileNumber;async function submit(event:FormEvent){event.preventDefault();try{setError('');const session=await verify(verifiedMobileNumber,otp);setSession(session);navigate('/dashboard');}catch{setError('OTP could not be verified.');}}return <main className="panel"><p className="eyebrow">STEP 2 / 2</p><h1>Verify your OTP</h1><p>Use demo code <strong>1234</strong>.</p><form onSubmit={submit}><label htmlFor="otp">One-time password</label><input id="otp" value={otp} onChange={event=>setOtp(event.target.value)} required /><button className="button" type="submit">Verify and continue</button>{error&&<p role="alert">{error}</p>}</form></main>}
+export default function OtpPage() {
+  const mobileNumber = (useLocation().state as { mobileNumber?: string } | null)?.mobileNumber;
+  const [otp, setOtp] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { setSession } = useAuth();
+
+  if (!mobileNumber) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const verifiedMobileNumber = mobileNumber;
+
+  async function submit(event: FormEvent): Promise<void> {
+    event.preventDefault();
+
+    try {
+      setError('');
+      const session = await verify(verifiedMobileNumber, otp);
+      setSession(session);
+      navigate(`/dashboard${searchParams.toString() ? `?${searchParams.toString()}` : ''}`);
+    } catch {
+      setError('OTP could not be verified.');
+    }
+  }
+
+  return (
+    <main className="panel">
+      <p className="eyebrow">STEP 2 / 2</p>
+      <h1>Verify your OTP</h1>
+      <p>
+        Use demo code <strong>1234</strong>.
+      </p>
+      <form onSubmit={submit}>
+        <label htmlFor="otp">One-time password</label>
+        <input
+          id="otp"
+          value={otp}
+          onChange={(event) => setOtp(event.target.value)}
+          required
+        />
+        <button className="button" type="submit">
+          Verify and continue
+        </button>
+        {error && <p role="alert">{error}</p>}
+      </form>
+    </main>
+  );
+}

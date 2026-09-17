@@ -1,5 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { describe, expect, it, vi } from 'vitest';
+import * as api from '../src/api/client';
+import * as auth from '../src/auth/AuthContext';
 import ConfirmationPage from '../src/pages/ConfirmationPage';
-describe('confirmation page',()=>{it('renders only backend confirmation details',()=>{render(<MemoryRouter initialEntries={[{pathname:'/confirmation',state:{confirmation:{confirmationId:'BMS-7',movie:{id:1,title:'Paradise'},theatre:{id:1,name:'Sandhya'},seats:['A1','A2','A3']}}}]}><ConfirmationPage/></MemoryRouter>);expect(screen.getByRole('heading',{name:'Congratulations!'})).toBeVisible();expect(screen.getByText('Paradise at Sandhya')).toBeVisible();expect(screen.getByText('Seats: A1, A2, A3')).toBeVisible();});it('does not fabricate a confirmation without response state',()=>{render(<MemoryRouter><ConfirmationPage/></MemoryRouter>);expect(screen.queryByRole('heading',{name:'Congratulations!'})).toBeNull();});});
+function renderConfirmation(){vi.spyOn(auth,'useAuth').mockReturnValue({session:{token:'token',user:{id:1,mobileNumber:'987'}},setSession:vi.fn(),clearSession:vi.fn()});return render(<MemoryRouter initialEntries={['/confirmation/BMS-7']}><Routes><Route path="/confirmation/:confirmationId" element={<ConfirmationPage/>}/><Route path="/login" element={<h1>Login</h1>}/></Routes></MemoryRouter>);}
+describe('confirmation page',()=>{it('renders durable backend confirmation details',async()=>{vi.spyOn(api,'getBookingConfirmation').mockResolvedValue({confirmationId:'BMS-7',movie:{id:1,title:'Paradise'},theatre:{id:1,name:'Sandhya 70mm'},seats:['A1','A2','A3']});renderConfirmation();expect(await screen.findByRole('heading',{name:'Congratulations!'})).toBeVisible();expect(screen.getByText('Paradise at Sandhya 70mm')).toBeVisible();});it('renders bounded unavailable state when backend confirmation is not found',async()=>{vi.spyOn(api,'getBookingConfirmation').mockRejectedValue(new Error('missing'));renderConfirmation();expect(await screen.findByRole('alert')).toHaveTextContent('Booking confirmation is unavailable.');});});
