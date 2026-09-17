@@ -884,6 +884,14 @@
       "_origin": "ast"
     },
     {
+      "id": "frontend_e2e_payment_spec",
+      "label": "payment.spec.ts",
+      "file_type": "code",
+      "source_file": "frontend/e2e/payment.spec.ts",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_e2e_seats_spec",
       "label": "seats.spec.ts",
       "file_type": "code",
@@ -1315,6 +1323,15 @@
       "_origin": "ast"
     },
     {
+      "id": "frontend_src_api_client_createbooking",
+      "label": "createBooking()",
+      "file_type": "code",
+      "source_file": "frontend/src/api/client.ts",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_app",
       "label": "App.tsx",
       "file_type": "code",
@@ -1328,7 +1345,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "_callable": true,
       "_origin": "ast",
       "community": 0
@@ -1529,6 +1546,23 @@
       "community": 0
     },
     {
+      "id": "frontend_src_pages_paymentpage",
+      "label": "PaymentPage.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_paymentpage_paymentpage",
+      "label": "PaymentPage()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_pages_seatpage",
       "label": "SeatPage.tsx",
       "file_type": "code",
@@ -1695,6 +1729,32 @@
       "file_type": "code",
       "source_file": "frontend/tests/discovery.test.tsx",
       "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_tests_payment_test",
+      "label": "payment.test.tsx",
+      "file_type": "code",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_tests_payment_test_ready",
+      "label": "Ready()",
+      "file_type": "code",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_tests_payment_test_renderready",
+      "label": "renderReady()",
+      "file_type": "code",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L10",
       "_callable": true,
       "_origin": "ast"
     },
@@ -3568,6 +3628,17 @@
     },
     {
       "source": "frontend_src_api_client",
+      "target": "frontend_src_types_bookingconfirmation",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_api_client",
       "target": "frontend_src_types_logininitiated",
       "relation": "imports",
       "context": "import",
@@ -3650,6 +3721,16 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_api_client",
+      "target": "frontend_src_api_client_createbooking",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_api_client_login",
       "target": "frontend_src_api_client_request",
       "relation": "calls",
@@ -3690,6 +3771,17 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/api/client.ts",
       "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_api_client_createbooking",
+      "target": "frontend_src_api_client_request",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/api/client.ts",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3816,11 +3908,22 @@
     },
     {
       "source": "frontend_src_app",
+      "target": "frontend_src_pages_paymentpage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
       "target": "frontend_src_app_app",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4175,6 +4278,82 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_api_client",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_api_client_createbooking",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_auth_authcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_auth_authcontext_useauth",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_booking_bookingcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_booking_bookingcontext_usebooking",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage",
+      "target": "frontend_src_pages_paymentpage_paymentpage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_pages_seatpage",
       "target": "frontend_src_booking_bookingcontext",
       "relation": "imports_from",
@@ -4457,6 +4636,114 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/discovery.test.tsx",
       "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_auth_authcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_auth_authcontext_authprovider",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_auth_authcontext_useauth",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_booking_bookingcontext",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_booking_bookingcontext_bookingprovider",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_booking_bookingcontext_usebooking",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_pages_paymentpage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_api_client",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_tests_payment_test_ready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_tests_payment_test_renderready",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4797,6 +5084,17 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_app",
+      "target": "frontend_src_pages_paymentpage_paymentpage",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_main",
       "target": "frontend_src_app_app",
       "relation": "imports",
@@ -4841,6 +5139,17 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_tests_payment_test",
+      "target": "frontend_src_pages_paymentpage_paymentpage",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_tests_seats_test",
       "target": "frontend_src_pages_seatpage_seatpage",
       "relation": "imports",
@@ -4881,6 +5190,28 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/tests/discovery.test.tsx",
       "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test_ready",
+      "target": "frontend_src_auth_authcontext_useauth",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_tests_payment_test_ready",
+      "target": "frontend_src_booking_bookingcontext_usebooking",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/tests/payment.test.tsx",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5057,6 +5388,42 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_pages_paymentpage_paymentpage",
+      "target": "frontend_src_auth_authcontext_useauth",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage_paymentpage",
+      "target": "frontend_src_booking_bookingcontext_usebooking",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_paymentpage_paymentpage",
+      "target": "frontend_src_api_client_createbooking",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/PaymentPage.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_pages_seatpage_seatpage",
       "target": "frontend_src_booking_bookingcontext_usebooking",
       "relation": "calls",
@@ -5222,8 +5589,8 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_src_modules_catalog_catalog_service_catalogservice_listmovies",
-      "_tgt": "backend_src_modules_catalog_catalog_repository_catalogmovie"
+      "_src": "backend_src_modules_catalog_catalog_repository_catalogmovie",
+      "_tgt": "backend_src_modules_catalog_catalog_service_catalogservice_listmovies"
     },
     {
       "source": "backend_src_modules_catalog_catalog_repository_catalogtheatre",
@@ -5235,8 +5602,8 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_src_modules_catalog_catalog_service_catalogservice_listtheatres",
-      "_tgt": "backend_src_modules_catalog_catalog_repository_catalogtheatre"
+      "_src": "backend_src_modules_catalog_catalog_repository_catalogtheatre",
+      "_tgt": "backend_src_modules_catalog_catalog_service_catalogservice_listtheatres"
     },
     {
       "source": "backend_src_modules_catalog_catalog_repository_catalogtheatre",
@@ -5248,8 +5615,8 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_src_modules_catalog_catalog_service_catalogservice_listtheatresformovie",
-      "_tgt": "backend_src_modules_catalog_catalog_repository_catalogtheatre"
+      "_src": "backend_src_modules_catalog_catalog_repository_catalogtheatre",
+      "_tgt": "backend_src_modules_catalog_catalog_service_catalogservice_listtheatresformovie"
     },
     {
       "source": "backend_src_modules_catalog_catalog_repository_catalogrepository",
@@ -5261,15 +5628,15 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "_src": "backend_src_modules_catalog_catalog_service_catalogservice_constructor",
-      "_tgt": "backend_src_modules_catalog_catalog_repository_catalogrepository"
+      "_src": "backend_src_modules_catalog_catalog_repository_catalogrepository",
+      "_tgt": "backend_src_modules_catalog_catalog_service_catalogservice_constructor"
     }
   ],
   "metadata": {
-    "built_at": "2026-09-17T12:39:05.298827+00:00",
+    "built_at": "2026-09-17T12:41:56.838866+00:00",
     "version": "graph_update-v1",
     "codebase_root": "C:\\artifacts-v2\\T0132PcJVCRTV000417092611591907\\developer",
     "force": true,
-    "files_scanned": 43
+    "files_scanned": 46
   }
 }

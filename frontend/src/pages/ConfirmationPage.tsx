@@ -1,0 +1,4 @@
+import { Navigate, useLocation } from 'react-router-dom';
+import type { BookingConfirmation } from '../types';
+/** Render a booking confirmation received from the backend only. */
+export default function ConfirmationPage(){const confirmation=(useLocation().state as {confirmation?:BookingConfirmation}|null)?.confirmation;if(!confirmation)return <Navigate to="/dashboard" replace/>;return <main className="panel"><p className="eyebrow">BOOKING CONFIRMED / {confirmation.confirmationId}</p><h1>Congratulations!</h1><p>{confirmation.movie.title} at {confirmation.theatre.name}</p><p>Seats: {confirmation.seats.join(', ')}</p></main>}

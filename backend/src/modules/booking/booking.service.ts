@@ -1,0 +1,4 @@
+import type Database from 'better-sqlite3';
+import { BookingRepository, type Confirmation } from './booking.repository';
+/** Enforce fixed-flow booking rules before persistence. */
+export class BookingService { constructor(private readonly db:Database.Database,private readonly repository:BookingRepository) {} create(userId:number,input:{movieId:number;theatreId:number;seats:string[];paymentMethod:'CARD'|'UPI';totalPrice:number}):Confirmation {if(!this.db.prepare('SELECT 1 FROM users WHERE id=?').get(userId))throw new Error('Invalid user');if(input.seats.join(',')!=='A1,A2,A3'||input.totalPrice!==450||!['CARD','UPI'].includes(input.paymentMethod)||!this.repository.isOffered(input.movieId,input.theatreId))throw new Error('Invalid booking');return this.repository.create(userId,input);}}
