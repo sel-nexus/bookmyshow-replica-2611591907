@@ -1,0 +1,8 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { useEffect } from 'react';
+import { describe, expect, it } from 'vitest';
+import { BookingProvider, useBooking } from '../src/booking/BookingContext';
+import SeatPage from '../src/pages/SeatPage';
+function SeededSeatPage(){const booking=useBooking();useEffect(()=>{booking.selectMovie({id:1,title:'Paradise'});booking.selectTheatre({id:1,name:'Sandhya 70mm'});},[]);return <SeatPage/>;}
+describe('seat selection',()=>{it('starts with an unselected visual grid',async()=>{render(<MemoryRouter><BookingProvider><SeededSeatPage/></BookingProvider></MemoryRouter>);expect(await screen.findByText('No seats selected yet.')).toBeVisible();expect(screen.getByLabelText('A1 unselected')).toBeVisible();});it('applies only A1 A2 A3 and fixed Rs.450 after Select Seats',async()=>{render(<MemoryRouter><BookingProvider><SeededSeatPage/></BookingProvider></MemoryRouter>);fireEvent.click(await screen.findByRole('button',{name:'Select Seats'}));expect(await screen.findByText('Selected: A1, A2, A3 · Rs. 450')).toBeVisible();expect(screen.getByLabelText('A1 selected')).toBeVisible();expect(screen.getByLabelText('A2 selected')).toBeVisible();expect(screen.getByLabelText('A3 selected')).toBeVisible();expect(screen.getByLabelText('A4 unselected')).toBeVisible();});it('redirects direct visits without booking context',()=>{render(<MemoryRouter initialEntries={['/seats']}><BookingProvider><SeatPage/></BookingProvider></MemoryRouter>);expect(screen.queryByRole('heading',{name:'Find your seats'})).toBeNull();});});
