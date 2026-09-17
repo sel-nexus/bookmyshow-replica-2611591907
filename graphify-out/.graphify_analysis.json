@@ -1,0 +1,351 @@
+{
+  "communities": {
+    "0": [
+      "frontend_src_api_client",
+      "frontend_src_api_client_login",
+      "frontend_src_api_client_request",
+      "frontend_src_api_client_verify",
+      "frontend_src_app",
+      "frontend_src_app_app",
+      "frontend_src_auth_authcontext",
+      "frontend_src_auth_authcontext_authcontext",
+      "frontend_src_auth_authcontext_authprovider",
+      "frontend_src_auth_authcontext_authvalue",
+      "frontend_src_auth_authcontext_useauth",
+      "frontend_src_auth_requireauth",
+      "frontend_src_auth_requireauth_requireauth",
+      "frontend_src_main",
+      "frontend_src_pages_landingpage",
+      "frontend_src_pages_landingpage_landingpage",
+      "frontend_src_pages_loginpage",
+      "frontend_src_pages_loginpage_loginpage",
+      "frontend_src_pages_otppage",
+      "frontend_src_pages_otppage_otppage",
+      "frontend_src_types",
+      "frontend_src_types_authsession",
+      "frontend_src_types_bookingconfirmation",
+      "frontend_src_types_logininitiated",
+      "frontend_src_types_movie",
+      "frontend_src_types_theatre",
+      "frontend_src_types_user",
+      "frontend_tests_auth_test"
+    ],
+    "1": [
+      "frontend_tsconfig",
+      "frontend_tsconfig_compileroptions",
+      "frontend_tsconfig_compileroptions_allowjs",
+      "frontend_tsconfig_compileroptions_esmoduleinterop",
+      "frontend_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "frontend_tsconfig_compileroptions_jsx",
+      "frontend_tsconfig_compileroptions_lib",
+      "frontend_tsconfig_compileroptions_module",
+      "frontend_tsconfig_compileroptions_moduleresolution",
+      "frontend_tsconfig_compileroptions_noemit",
+      "frontend_tsconfig_compileroptions_resolvejsonmodule",
+      "frontend_tsconfig_compileroptions_skiplibcheck",
+      "frontend_tsconfig_compileroptions_strict",
+      "frontend_tsconfig_compileroptions_target",
+      "frontend_tsconfig_compileroptions_usedefineforclassfields",
+      "frontend_tsconfig_include",
+      "frontend_tsconfig_json_ref_src",
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_es2020",
+      "ref_vite_config_ts"
+    ],
+    "2": [
+      "backend_package",
+      "backend_package_dependencies",
+      "backend_package_dependencies_better_sqlite3",
+      "backend_package_dependencies_cors",
+      "backend_package_dependencies_dotenv",
+      "backend_package_dependencies_express",
+      "backend_package_dependencies_jsonwebtoken",
+      "backend_package_dependencies_zod",
+      "backend_package_name",
+      "backend_package_private",
+      "backend_package_scripts",
+      "backend_package_scripts_build",
+      "backend_package_scripts_start",
+      "backend_package_scripts_test",
+      "better_sqlite3",
+      "cors",
+      "dotenv",
+      "express",
+      "jsonwebtoken",
+      "zod"
+    ],
+    "3": [
+      "backend_package_devdependencies_typescript",
+      "backend_package_json_typescript",
+      "frontend_package_devdependencies",
+      "frontend_package_devdependencies_jsdom",
+      "frontend_package_devdependencies_playwright_test",
+      "frontend_package_devdependencies_testing_library_jest_dom",
+      "frontend_package_devdependencies_testing_library_react",
+      "frontend_package_devdependencies_testing_library_user_event",
+      "frontend_package_devdependencies_types_react",
+      "frontend_package_devdependencies_types_react_dom",
+      "frontend_package_devdependencies_typescript",
+      "frontend_package_devdependencies_vitest",
+      "frontend_package_json_vitest",
+      "jsdom",
+      "playwright_test",
+      "testing_library_jest_dom",
+      "testing_library_react",
+      "testing_library_user_event",
+      "types_react",
+      "types_react_dom"
+    ],
+    "4": [
+      "backend_src_app",
+      "backend_src_app_createapp",
+      "backend_src_config",
+      "backend_src_config_config",
+      "backend_src_config_loadconfig",
+      "backend_src_db_database",
+      "backend_src_db_database_opendatabase",
+      "backend_src_index",
+      "backend_src_index_config",
+      "backend_src_middleware_error_handler",
+      "backend_src_middleware_error_handler_errorhandler",
+      "backend_src_modules_auth_auth_routes",
+      "backend_src_modules_auth_auth_routes_createauthrouter",
+      "backend_src_modules_auth_auth_service",
+      "backend_src_modules_auth_auth_service_authservice",
+      "backend_src_modules_auth_auth_service_authservice_constructor",
+      "backend_src_modules_auth_auth_service_authservice_initiate",
+      "backend_src_modules_auth_auth_service_authservice_verify",
+      "backend_tests_auth_test",
+      "backend_tests_auth_test_app"
+    ],
+    "5": [
+      "backend_package_devdependencies",
+      "backend_package_devdependencies_supertest",
+      "backend_package_devdependencies_tsx",
+      "backend_package_devdependencies_types_better_sqlite3",
+      "backend_package_devdependencies_types_cors",
+      "backend_package_devdependencies_types_express",
+      "backend_package_devdependencies_types_jsonwebtoken",
+      "backend_package_devdependencies_types_node",
+      "backend_package_devdependencies_types_supertest",
+      "backend_package_devdependencies_vitest",
+      "backend_package_json_vitest",
+      "supertest",
+      "tsx",
+      "types_better_sqlite3",
+      "types_cors",
+      "types_express",
+      "types_jsonwebtoken",
+      "types_node",
+      "types_supertest"
+    ],
+    "6": [
+      "frontend_package",
+      "frontend_package_dependencies",
+      "frontend_package_dependencies_react",
+      "frontend_package_dependencies_react_dom",
+      "frontend_package_dependencies_react_router_dom",
+      "frontend_package_dependencies_vite",
+      "frontend_package_dependencies_vitejs_plugin_react",
+      "frontend_package_name",
+      "frontend_package_private",
+      "frontend_package_scripts",
+      "frontend_package_scripts_build",
+      "frontend_package_scripts_dev",
+      "frontend_package_scripts_test",
+      "frontend_package_type",
+      "react",
+      "react_dom",
+      "react_router_dom",
+      "vite",
+      "vitejs_plugin_react"
+    ],
+    "7": [
+      "plan_api_contract",
+      "plan_dummy_payment_processing",
+      "plan_otp_jwt_authentication",
+      "plan_persisted_booking_confirmation",
+      "plan_prescribed_seat_selection",
+      "plan_seeded_catalog_discovery",
+      "plan_sqlite_transactional_persistence",
+      "todos_authentication_shell",
+      "todos_booking_confirmation",
+      "todos_discovery",
+      "todos_dummy_payment",
+      "todos_prescribed_seats"
+    ],
+    "8": [
+      "backend_tsconfig",
+      "backend_tsconfig_compileroptions",
+      "backend_tsconfig_compileroptions_esmoduleinterop",
+      "backend_tsconfig_compileroptions_module",
+      "backend_tsconfig_compileroptions_outdir",
+      "backend_tsconfig_compileroptions_rootdir",
+      "backend_tsconfig_compileroptions_skiplibcheck",
+      "backend_tsconfig_compileroptions_strict",
+      "backend_tsconfig_compileroptions_target",
+      "backend_tsconfig_include",
+      "backend_tsconfig_json_ref_src"
+    ],
+    "9": [
+      "plan_bookmyshow_replica",
+      "plan_deterministic_booking_journey",
+      "plan_full_stack_typescript_implementation",
+      "plan_hld_architecture",
+      "plan_lld_bookmyshow_replica",
+      "plan_ui_design_modern"
+    ],
+    "10": [
+      "backend_src_middleware_auth",
+      "backend_src_middleware_auth_requireauth"
+    ],
+    "11": [
+      "frontend_index_deterministic_cinema_booking_demonstration",
+      "frontend_index_reelseat"
+    ],
+    "12": [
+      "frontend_e2e_auth_spec"
+    ],
+    "13": [
+      "frontend_playwright_config"
+    ],
+    "14": [
+      "frontend_src_test_setup"
+    ],
+    "15": [
+      "frontend_vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.1349206349206349,
+    "1": 0.09523809523809523,
+    "2": 0.1,
+    "3": 0.1,
+    "4": 0.19473684210526315,
+    "5": 0.10526315789473684,
+    "6": 0.10526315789473684,
+    "7": 0.16666666666666666,
+    "8": 0.18181818181818182,
+    "9": 0.4,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0
+  },
+  "gods": [
+    {
+      "id": "frontend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 14
+    },
+    {
+      "id": "backend_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 8
+    },
+    {
+      "id": "backend_src_modules_auth_auth_service_authservice",
+      "label": "AuthService",
+      "degree": 6
+    },
+    {
+      "id": "backend_src_app_createapp",
+      "label": "createApp()",
+      "degree": 5
+    },
+    {
+      "id": "backend_src_modules_auth_auth_routes_createauthrouter",
+      "label": "createAuthRouter()",
+      "degree": 5
+    },
+    {
+      "id": "frontend_src_auth_authcontext_useauth",
+      "label": "useAuth()",
+      "degree": 5
+    },
+    {
+      "id": "backend_package_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "frontend_package_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "frontend_src_types_authsession",
+      "label": "AuthSession",
+      "degree": 4
+    },
+    {
+      "id": "frontend_tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Authentication Shell",
+      "target": "OTP JWT Authentication",
+      "source_files": [
+        "todos.yaml",
+        "PLAN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Discovery",
+      "target": "Seeded Catalog Discovery",
+      "source_files": [
+        "todos.yaml",
+        "PLAN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Prescribed Seats",
+      "target": "Prescribed Seat Selection",
+      "source_files": [
+        "todos.yaml",
+        "PLAN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Dummy Payment",
+      "target": "Dummy Payment Processing",
+      "source_files": [
+        "todos.yaml",
+        "PLAN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Booking Confirmation",
+      "target": "Persisted Booking Confirmation",
+      "source_files": [
+        "todos.yaml",
+        "PLAN.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
