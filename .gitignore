@@ -5,6 +5,7 @@ playwright-report/
 test-results/
 .env
 .env.local
+.env.prod
 .env.*.local
 .engine/
 __pycache__/
